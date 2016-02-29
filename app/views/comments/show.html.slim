@@ -1,0 +1,21 @@
+.show-item
+  .well.comment.form-horizontal
+
+    .control-group
+      label.control-label
+        | Content
+      .controls
+        .input-xlarge.uneditable-input.text.span7
+          = comment.content
+    .control-group
+      label.control-label
+        | Article
+      .controls
+        .input-xlarge.uneditable-input.references.span7
+          = comment.article
+  .form-actions
+    = link_to(edit_comment_path(comment), class: 'btn btn-primary') do
+      i.fi-pencil
+      | Edit
+    '  or
+    = link_to 'Back', :back

@@ -1,0 +1,29 @@
+.show-item
+  .well.article.form-horizontal
+
+    .control-group
+      label.control-label
+        | Title
+      .controls
+        .input-xlarge.uneditable-input.string.span7
+          = article.title
+    .control-group
+      label.control-label
+        | Content
+      .controls
+        .input-xlarge.uneditable-input.text.span7
+          = article.content
+  .form-actions
+    = link_to(edit_article_path(article), class: 'btn btn-primary') do
+      i.fi-pencil
+      | Edit
+    '  or
+    = link_to 'Back', :back
+
+br
+
+.comments
+  = render comments
+
+.forms
+  =render "comments/form"
