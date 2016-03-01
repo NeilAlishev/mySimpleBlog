@@ -1,5 +1,7 @@
 ul.right
+  = active_link_to "Search post", "#", active: :exclusive, wrap_tag: :li
   - if user_signed_in?
+    = active_link_to "New post", new_article_path, active: :exclusive, wrap_tag: :li
     li.has-dropdown
       a.user-dropdown(href="#") = current_user.full_name_with_email
       ul.dropdown

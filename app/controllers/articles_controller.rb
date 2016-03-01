@@ -1,9 +1,11 @@
 class ArticlesController < ApplicationController
   respond_to :html
+  before_action :authenticate_user!, except: %i(index show)
+  before_action :authorize_user!, only: %i(destroy update)
 
   expose(:article, attributes: :article_params)
   expose(:articles) { Article.page(params[:page]) }
-  expose(:comments) { article.comments }
+  expose(:comments) { article.comments.includes(:user) }
 
 
   def create
@@ -27,6 +29,10 @@ class ArticlesController < ApplicationController
   private
 
   def article_params
-    params.require(:article).permit(:title, :content)
+    params.require(:article).permit(:title, :content).merge(user_id: current_user.id)
+  end
+
+  def authorize_user!
+    authorize(article, :manage?)
   end
 end

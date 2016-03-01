@@ -1,4 +1,8 @@
 .row
   .columns
     h2
-      = title("Home")
+      - if user_signed_in?
+        | Your posts.
+      -else
+        = link_to "Enter", new_user_session_path
+        |  to create new posts

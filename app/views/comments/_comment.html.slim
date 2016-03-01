@@ -1,4 +1,8 @@
 .comment data-id=comment.id
   = comment.content
-  = link_to 'Удалить', "" , class: "delete-comment-button", data: { confirm: 'Вы уверены?' }
+  .author
+    |Author:
+    = comment.user.full_name
+  - if policy(comment).manage?
+    = link_to 'Удалить', "", class: "delete-comment-button", data: { confirm: 'Вы уверены?' }
   hr

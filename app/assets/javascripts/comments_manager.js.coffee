@@ -21,6 +21,8 @@ class CommentsManager
       success: (data) ->
         $(".comments").append(data)
         $("#comment-field").val("")
+        current = parseInt $("#comment-counter").html()
+        $("#comment-counter").html("#{current + 1}")
 
   deleteComment:(e) ->
     e.preventDefault()
@@ -30,6 +32,9 @@ class CommentsManager
       method: 'DELETE'
       success: ->
         current_comment.remove()
+        current = parseInt $("#comment-counter").html()
+        $("#comment-counter").html("#{current - 1}")
+
 
 new CommentsManager
 

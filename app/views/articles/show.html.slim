@@ -13,17 +13,35 @@
       .controls
         .input-xlarge.uneditable-input.text.span7
           = article.content
+    .control-group
+       label.control-label
+        | Author
+       .controls
+          .input-xlarge.uneditable-input.text.span7
+          = article.user.full_name
   .form-actions
-    = link_to(edit_article_path(article), class: 'btn btn-primary') do
-      i.fi-pencil
-      | Edit
-    '  or
+    - if policy(article).manage?
+      = link_to(edit_article_path(article), class: 'btn btn-primary') do
+        i.fi-pencil
+        | Edit
+      = link_to(article, method: :delete, class: 'btn btn-danger', data: { confirm: 'Are you sure?' }) do
+        i.fi-trash
+        | Delete
+      '  or
     = link_to 'Back', :back
 
 br
+span id='comment-counter'
+  = comments.count
+|  Comments
 
 .comments
   = render comments
 
-.forms
-  =render "comments/form"
+- if user_signed_in?
+  .forms
+    =render "comments/form"
+- else
+  h4
+    = link_to "Вoйдите", new_user_session_path
+    |  для того, чтобы оставить комментарий
