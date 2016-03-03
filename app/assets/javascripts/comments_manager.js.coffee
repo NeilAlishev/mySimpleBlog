@@ -9,7 +9,7 @@ class CommentsManager
     $(document).on "click", ".delete-comment-button", @deleteComment
 
 
-  createComment:(e) ->
+  createComment:(e) =>
     e.preventDefault()
     $.ajax
       url:'/comments'
@@ -17,24 +17,26 @@ class CommentsManager
       data:
         comment:
           content: $("#comment-field").val()
-          article_id: $('#hidden-comment-field').val()
-      success: (data) ->
+          article_id: $('.article').data('article-id')
+      success: (data) =>
         $(".comments").append(data)
         $("#comment-field").val("")
-        current = parseInt $("#comment-counter").html()
-        $("#comment-counter").html("#{current + 1}")
+        @refreshCounter()
 
-  deleteComment:(e) ->
+  deleteComment:(e) =>
     e.preventDefault()
-    current_comment = $(this).parent()
+    comment_id = $(e.currentTarget).parent().data('comment-id')
     $.ajax
-      url:"/comments/#{current_comment.data('id')}"
+      url:"/comments/#{comment_id}"
       method: 'DELETE'
-      success: ->
-        current_comment.remove()
-        current = parseInt $("#comment-counter").html()
-        $("#comment-counter").html("#{current - 1}")
+      success: =>
+        $(".comment[data-comment-id=\"#{comment_id}\"]").remove()
+        @refreshCounter()
+
+  refreshCounter: =>
+    numOfComments = $(".comment").length
+    $("#comment-counter").html(numOfComments)
 
 
-new CommentsManager
-
+if $('.comments').length
+  window.App.CommentsManager = new CommentsManager

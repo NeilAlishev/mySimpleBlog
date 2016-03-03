@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   devise_for :users
   resources :articles
   resources :blogs, only: :index
+
   root to: "pages#home"
-  get '/:username', to: 'blogs#show', as: 'blog'
+
+  get '/:full_name', to: 'blogs#show', as: 'blog'
 end

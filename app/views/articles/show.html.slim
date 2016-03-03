@@ -1,39 +1,9 @@
-.show-item
-  .well.article.form-horizontal
+=render article
 
-    .control-group
-      label.control-label
-        | Title
-      .controls
-        .input-xlarge.uneditable-input.string.span7
-          = article.title
-    .control-group
-      label.control-label
-        | Content
-      .controls
-        .input-xlarge.uneditable-input.text.span7
-          = article.content
-    .control-group
-       label.control-label
-        | Author
-       .controls
-          .input-xlarge.uneditable-input.text.span7
-          = article.user.full_name
-  .form-actions
-    - if policy(article).manage?
-      = link_to(edit_article_path(article), class: 'btn btn-primary') do
-        i.fi-pencil
-        | Edit
-      = link_to(article, method: :delete, class: 'btn btn-danger', data: { confirm: 'Are you sure?' }) do
-        i.fi-trash
-        | Delete
-      '  or
-    = link_to 'Back', :back
-
-br
-span id='comment-counter'
-  = comments.count
-|  Comments
+b
+  span id='comment-counter'
+    = comments.count
+  |  Comments
 
 .comments
   = render comments

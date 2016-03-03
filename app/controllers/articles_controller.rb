@@ -4,7 +4,7 @@ class ArticlesController < ApplicationController
   before_action :authorize_user!, only: %i(destroy update)
 
   expose(:article, attributes: :article_params)
-  expose(:articles) { Article.page(params[:page]) }
+  expose(:articles) { current_user.articles.page(params[:page]) }
   expose(:comments) { article.comments.includes(:user) }
 
 
