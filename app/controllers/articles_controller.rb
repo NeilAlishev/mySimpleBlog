@@ -7,14 +7,13 @@ class ArticlesController < ApplicationController
   expose(:articles) { current_user.articles.page(params[:page]) }
   expose(:comments) { article.comments.includes(:user) }
 
-
   def create
-    flash[:notice] = 'Article was successfully created.' if article.save
+    flash[:notice] = "Article was successfully created." if article.save
     respond_with(article)
   end
 
   def update
-    flash[:notice] = 'Article was successfully updated.' if article.save
+    flash[:notice] = "Article was successfully updated." if article.save
     respond_with(article)
   end
 

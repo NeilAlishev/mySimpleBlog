@@ -5,9 +5,8 @@ class BlogsController < ApplicationController
   end
 
   def show
-    if !user
-      flash[:alert] = "Такого пользователя не существует"
-      redirect_to root_path
-    end
+    return if user
+    flash[:alert] = "Такого пользователя не существует"
+    redirect_to root_path
   end
 end

@@ -6,5 +6,5 @@ Rails.application.routes.draw do
 
   root to: "pages#home"
 
-  get '/:full_name', to: 'blogs#show', as: 'blog'
+  get "/:full_name", to: "blogs#show", as: "blog"
 end

@@ -5,5 +5,4 @@ class User < ActiveRecord::Base
   validates :full_name, presence: true, uniqueness: true
   has_many :comments
   has_many :articles
-
 end
