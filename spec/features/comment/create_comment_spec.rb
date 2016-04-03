@@ -1,8 +1,8 @@
 require "rails_helper"
 
-feature "create comments", js:true do
-  let(:user) {create :user}
-  let(:article) {create :article, user: user}
+feature "create comments", js: true do
+  let(:user) { create :user }
+  let(:article) { create :article, user: user }
 
   background do
     login_as user
@@ -16,6 +16,6 @@ feature "create comments", js:true do
   end
 
   scenario "comment-field becomes empty" do
-    expect(page).to have_field("comment-field", with:"")
+    expect(page).to have_field("comment-field", with: "")
   end
 end

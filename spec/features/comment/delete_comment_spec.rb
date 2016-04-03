@@ -1,8 +1,8 @@
 require "rails_helper"
 
-feature "delete comment", js:true do
-  let(:user) {create(:user)}
-  let(:article) {create :article, user: user}
+feature "delete comment", js: true do
+  let(:user) { create(:user) }
+  let(:article) { create :article, user: user }
 
   background do
     login_as user

@@ -1,5 +1,6 @@
 class BlogsController < ApplicationController
   expose(:user) { User.find_by_full_name(params[:full_name]) }
+  expose(:articles) { user.articles.page(params[:page]).per(5) }
 
   def index
   end
