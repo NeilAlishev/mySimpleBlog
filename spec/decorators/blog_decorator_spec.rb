@@ -1,4 +1,4 @@
 require "rails_helper"
 
-#describe BlogDecorator do
-#end
+# describe BlogDecorator do
+# end

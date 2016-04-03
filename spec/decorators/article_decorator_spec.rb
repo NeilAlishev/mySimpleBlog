@@ -1,4 +1,4 @@
 require "rails_helper"
 
-#describe ArticleDecorator do
-#end
+# describe ArticleDecorator do
+# end
