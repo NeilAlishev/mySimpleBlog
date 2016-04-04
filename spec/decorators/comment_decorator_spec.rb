@@ -1,4 +1,4 @@
-require 'spec_helper'
+require "rails_helper"
 
-describe CommentDecorator do
-end
+# describe CommentDecorator do
+# end

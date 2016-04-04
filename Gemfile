@@ -2,7 +2,7 @@ source "https://rubygems.org"
 
 ruby "2.2.4"
 
-gem "rails", "4.2.5.1"
+gem "rails", "4.2.5.2"
 gem "pg"
 
 # assets
@@ -23,6 +23,7 @@ gem "simple_form"
 gem "slim"
 
 # all other gems
+gem "active_model_serializers"
 gem "decent_decoration"
 gem "decent_exposure"
 gem "devise"
@@ -41,6 +42,7 @@ gem "responders"
 gem "rollbar"
 gem "seedbank"
 gem "stackprof"
+gem "select2-rails"
 
 group :staging, :production do
   gem "newrelic_rpm"

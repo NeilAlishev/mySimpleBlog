@@ -6,7 +6,7 @@
         | Title
       .controls
         .input-xlarge.uneditable-input.string.span7
-          = article.title
+          = link_to article.title, article
     .control-group
       label.control-label
         | Content
@@ -18,15 +18,5 @@
         | Author
        .controls
           .input-xlarge.uneditable-input.text.span7
-          = article.user.full_name
-  .form-actions
-    - if policy(article).manage?
-      = link_to(edit_article_path(article), class: 'btn btn-primary') do
-        i.fi-pencil
-        | Edit
-      = link_to(article, method: :delete, class: 'btn btn-danger', data: { confirm: 'Are you sure?' }) do
-        i.fi-trash
-        | Delete
-      '  or
-    = link_to 'Back', :back
-br
+            = article.user_full_name
+

@@ -1,3 +1,5 @@
+$black-color: #000;
+
 code {
   word-wrap: break-word;
 
@@ -21,4 +23,14 @@ li {
 
 .links {
   font-size: .85rem;
+}
+
+.search-title {
+  display: inline;
+
+  margin-left: 15px;
+}
+
+.select2-result-link {
+  color: $black-color;
 }

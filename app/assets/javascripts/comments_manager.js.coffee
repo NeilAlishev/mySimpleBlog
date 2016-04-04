@@ -33,7 +33,7 @@ class CommentsManager
         $(".comment[data-comment-id=\"#{comment_id}\"]").remove()
         @refreshCounter()
 
-  refreshCounter: =>
+  refreshCounter: ->
     numOfComments = $(".comment").length
     $("#comment-counter").html(numOfComments)
 

@@ -1,20 +1,9 @@
-table.table.table-striped
-  thead
-    tr
-        th Title
-        th Content
+h2 class="search-title" Search posts
+h4 class="search-title"by title
+select class="search-form"
+  option value="3620194" selected="selected"
 
-  - articles.each do |article|
-    tr
-      td= link_to article.title, article
-      td= article.content
 
-.paginator
-  = paginate(articles)
 
-br
-= link_to new_article_path, class: 'btn btn-primary' do
-  i.fi-plus
-  |  New Article
 
 

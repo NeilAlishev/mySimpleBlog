@@ -3,15 +3,13 @@ class CommentsController < ApplicationController
   before_action :authorize_user!
   expose(:comment, attributes: :comment_params)
 
-
   def create
-    comment.save
-
+    comment.save!
     render comment
   end
 
   def update
-    comment.save
+    comment.save!
     respond_with comment
   end
 

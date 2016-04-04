@@ -1,9 +1,8 @@
 .row
   .columns
-    - if user_signed_in?
-      h2 Your posts.
-      hr
-    -else
-      h2
-        = link_to "Enter", new_user_session_path
-        |  to create new posts
+    - unless user_signed_in?
+        h2
+          = link_to "Enter", new_user_session_path
+          |  to create new posts
+
+

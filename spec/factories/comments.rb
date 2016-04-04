@@ -1,7 +1,6 @@
 FactoryGirl.define do
   factory :comment do
     content "MyText"
-article nil
+    article
   end
-
 end
