@@ -24,6 +24,11 @@ gem "slim"
 
 # all other gems
 gem "active_model_serializers"
+gem "capistrano",      require: false
+gem 'capistrano-rbenv',   require: false
+gem 'capistrano-rails',   require: false
+gem 'capistrano-bundler', require: false
+gem 'capistrano-passenger',   require: false
 gem "decent_decoration"
 gem "decent_exposure"
 gem "devise"
@@ -34,6 +39,7 @@ gem "health_check"
 gem "interactor"
 gem "kaminari"
 gem "memory_profiler"
+gem "passenger"
 gem "puma"
 gem "pundit"
 gem "rack-canonical-host"
