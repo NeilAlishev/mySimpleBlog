@@ -45,3 +45,8 @@
 #     auth_methods: %w(publickey password)
 #     # password: 'please use keys'
 #   }
+set :stage, :production
+server '10.0.0.51', user: 'neil', roles: %w{web app db}
+role :app, %w{neil@10.0.0.51}
+role :web, %w{neil@10.0.0.51}
+role :db,  %w{neil@10.0.0.51}
