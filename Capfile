@@ -8,8 +8,8 @@ require "capistrano/rails"
 require "capistrano/bundler"
 require "capistrano/rbenv"
 require "capistrano/passenger"
-require 'capistrano/rails/assets'
-require 'capistrano/rails/migrations'
+require "capistrano/rails/assets"
+require "capistrano/rails/migrations"
 
 # Include tasks from other gems included in your Gemfile
 #
