@@ -5,7 +5,7 @@ class ArticlesController < ApplicationController
   before_action :authorize_user!, only: %i(destroy update)
 
   expose_decorated(:article, attributes: :article_params)
-  expose(:comments) { article.comments.includes(:user) }
+  expose_decorated(:comments) { article.comments.includes(:user) }
 
   def index
     return unless params[:q]

@@ -5,7 +5,7 @@ class CommentsController < ApplicationController
 
   def create
     comment.save!
-    render comment
+    render comment.decorate
   end
 
   def update

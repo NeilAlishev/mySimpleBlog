@@ -3,6 +3,8 @@
   .author
     | Author:
     = comment.user_full_name
+  .published_at
+    = comment.published_at
   - if policy(comment).manage?
     = link_to "Удалить", "", class: "delete-comment-button", data: { confirm: "Вы уверены?" }
   hr

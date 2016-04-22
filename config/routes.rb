@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
 
-  resources :comments
+  resources :comments, only: %i(create update destroy)
   resources :articles
   resources :blogs, only: :index
 
