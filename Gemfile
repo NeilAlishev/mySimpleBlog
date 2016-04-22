@@ -29,11 +29,13 @@ gem "capistrano-rbenv",   require: false
 gem "capistrano-rails",   require: false
 gem "capistrano-bundler", require: false
 gem "capistrano-passenger",   require: false
+gem "carrierwave"
 gem "decent_decoration"
 gem "decent_exposure"
 gem "devise"
 gem "draper"
 gem "flamegraph"
+gem "fog"
 gem "google-analytics-rails"
 gem "health_check"
 gem "interactor"
@@ -46,6 +48,7 @@ gem "rack-canonical-host"
 gem "rack-mini-profiler", require: false
 gem "responders"
 gem "rollbar"
+gem "rmagick"
 gem "seedbank"
 gem "stackprof"
 gem "select2-rails"

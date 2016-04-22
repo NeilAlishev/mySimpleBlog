@@ -1,4 +1,5 @@
-server "10.0.0.51", port: 80, roles: %i(:web :app :db), primary: true
+server "192.168.0.8", port: 80, roles: %i(:web :app :db), primary: true
+set :log_level, :debug
 
 set :application, "mySimpleBlog"
 set :repo_url, "git@github.com:NeilAlishev/mySimpleBlog.git"

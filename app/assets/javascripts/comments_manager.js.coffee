@@ -5,38 +5,51 @@
 class CommentsManager
 
   constructor: ->
-    $(document).on "submit", ".comment-form", @createComment
-    $(document).on "click", ".delete-comment-button", @deleteComment
+    @_bindUi()
+    @_bindEvents()
+
+  _bindUi: ->
+    @ui =
+      commentForm: $(".comment-form")
+      commentDeleteButton: $(".delete-comment-button")
+      commentCounter: $("#comment-counter")
+      commentField: $("#comment-field")
+      article: $(".article")
 
 
-  createComment:(e) =>
+  _bindEvents: ->
+    $(document).on "submit", ".comment-form", @_createComment
+    $(document).on "click", ".delete-comment-button", @_deleteComment
+
+
+  _createComment:(e) =>
     e.preventDefault()
     $.ajax
-      url:'/comments'
-      method: 'POST'
+      url:"/comments"
+      method: "POST"
       data:
         comment:
-          content: $("#comment-field").val()
-          article_id: $('.article').data('article-id')
+          content: @ui.commentField.val()
+          article_id: @ui.article.data("article-id")
       success: (data) =>
         $(".comments").append(data)
-        $("#comment-field").val("")
-        @refreshCounter()
+        @ui.commentField.val("")
+        @_refreshCounter()
 
-  deleteComment:(e) =>
+  _deleteComment:(e) =>
     e.preventDefault()
-    comment_id = $(e.currentTarget).parent().data('comment-id')
+    comment_id = $(e.currentTarget).parent().data("comment-id")
     $.ajax
       url:"/comments/#{comment_id}"
-      method: 'DELETE'
+      method: "DELETE"
       success: =>
         $(".comment[data-comment-id=\"#{comment_id}\"]").remove()
-        @refreshCounter()
+        @_refreshCounter()
 
-  refreshCounter: ->
+  _refreshCounter: ->
     numOfComments = $(".comment").length
-    $("#comment-counter").html(numOfComments)
+    @ui.commentCounter.html(numOfComments)
 
 
-if $('.comments').length
+if $(".comments").length
   window.App.CommentsManager = new CommentsManager

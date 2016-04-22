@@ -1,5 +1,5 @@
-=render article
-=render "article_actions"
+= render article
+= render "article_actions"
 b
   span id='comment-counter'
     = comments.count
@@ -10,7 +10,7 @@ b
 
 - if user_signed_in?
   .forms
-    =render "comments/form"
+    = render "comments/form"
 - else
   h4
     = link_to "Вoйдите", new_user_session_path
