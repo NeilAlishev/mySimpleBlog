@@ -5,6 +5,8 @@ class User
       email
       password
       password_confirmation
+      avatar
+      avatar_cache
     )
 
     def sign_up

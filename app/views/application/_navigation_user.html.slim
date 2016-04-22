@@ -1,5 +1,7 @@
 ul.right
   - if user_signed_in?
+    -unless current_user.avatar.blank?
+      = image_tag current_user.avatar.url, class: "avatar"
     li.has-dropdown
       a.user-dropdown(href="#") = current_user.full_name_with_email
       ul.dropdown

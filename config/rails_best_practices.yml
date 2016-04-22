@@ -6,7 +6,7 @@ DryBundlerInCapistranoCheck: { }
 HashSyntaxCheck: { }
 IsolateSeedDataCheck: { }
 KeepFindersOnTheirOwnModelCheck: { }
-LawOfDemeterCheck: { }
+LawOfƒterCheck: { }
 # LongLineCheck: { max_line_length: 79 }
 MoveCodeIntoControllerCheck: { }
 MoveCodeIntoHelperCheck: { array_count: 3 }
