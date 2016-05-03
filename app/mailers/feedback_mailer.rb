@@ -7,4 +7,3 @@ class FeedbackMailer < ApplicationMailer
          from: "blogProject@example.com")
   end
 end
-
