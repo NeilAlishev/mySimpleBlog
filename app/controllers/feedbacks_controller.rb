@@ -5,7 +5,7 @@ class FeedbacksController < ApplicationController
   end
 
   def create
-    if feedback.save
+    if feedback.valid?
       FeedbackMailer.feedback_message(feedback).deliver
       flash[:success] = "Your feedback has been submitted"
       redirect_to root_path
