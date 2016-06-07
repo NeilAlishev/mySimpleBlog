@@ -4,5 +4,7 @@
         h2
           = link_to "Enter", new_user_session_path
           |  to create new posts
+    h2 Recent posts:
     = render articles
+    = paginate articles, total_pages: 3
 

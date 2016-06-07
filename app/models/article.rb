@@ -2,7 +2,7 @@ class Article < ActiveRecord::Base
   has_many :comments, dependent: :destroy
   belongs_to :user
 
-  scope :recent, -> (page = 1) { order("created_at desc").page(page) }
+  scope :recent, -> (page = 1) { order("created_at desc").page(page).per(5) }
 
   validates :title, :content, presence: true
 

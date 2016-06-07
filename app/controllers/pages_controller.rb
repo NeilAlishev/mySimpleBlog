@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  expose_decorated(:articles) { Article.all.includes(:user).recent }
+  expose_decorated(:articles) { Article.all.includes(:user).recent(params[:page]) }
 
   def home
   end
