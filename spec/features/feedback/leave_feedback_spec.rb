@@ -6,7 +6,9 @@ feature "Leave a feedback" do
     click_on "Contact us"
     fill_in "Name", with: "John"
     fill_in "Text", with: "Hey there!"
-    click_on "Отправить"
+    fill_in "Subject", with: "Some subject"
+    fill_in "Email", with: "test@example.com"
+    click_on "Send"
   end
 
   scenario "Feedback gets successfully submitted" do

@@ -2,7 +2,15 @@ require "rails_helper"
 
 RSpec.describe FeedbackMailer, type: :mailer do
   describe "feedback_message" do
-    let(:feedback) { Feedback.new(name: "John", text: "Very nice!") }
+    let(:feedback) do
+      Feedback.new(
+        name: "John",
+        text: "Very nice!",
+        email: "test@example.com",
+        subject: "some subject"
+      )
+    end
+
     let(:mail) { described_class.feedback_message(feedback).deliver_now }
 
     it "renders the subject" do

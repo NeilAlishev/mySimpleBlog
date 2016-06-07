@@ -1,8 +1,8 @@
 class Feedback
   include ActiveModel::Model
-  attr_accessor :name, :text
+  attr_accessor :name, :text, :email, :subject
 
-  validates :name, :text, presence: true
+  validates :name, :text, :email, :subject, presence: true
 
   def attributes=(hash)
     hash.each do |key, value|
