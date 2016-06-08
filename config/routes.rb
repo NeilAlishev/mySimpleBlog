@@ -9,5 +9,5 @@ Rails.application.routes.draw do
   root to: "pages#home"
 
   get "/aboutUs", to: "pages#about_us", as: "about_us"
-  get "/:full_name", to: "blogs#show", as: "blog"
+  get "/:user_slug", to: "blogs#show", as: "blog"
 end
