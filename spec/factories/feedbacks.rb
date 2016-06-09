@@ -1,6 +1,8 @@
 FactoryGirl.define do
   factory :feedback do
-    name "John"
+    name { Faker::Name.name }
+    email
     text "Very nice!"
+    subject "some subject"
   end
 end
