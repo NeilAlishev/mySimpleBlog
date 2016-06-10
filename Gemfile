@@ -34,6 +34,7 @@ gem "decent_decoration"
 gem "decent_exposure"
 gem "devise"
 gem "draper"
+gem "factory_girl_rails"
 gem "flamegraph"
 gem "fog"
 gem "google-analytics-rails"
@@ -54,7 +55,6 @@ gem "stackprof"
 gem "select2-rails"
 
 group :staging, :production do
-  gem "factory_girl_rails"
   gem "newrelic_rpm"
   gem "rails_stdout_logging"
 end
