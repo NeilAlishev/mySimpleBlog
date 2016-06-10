@@ -54,6 +54,7 @@ gem "stackprof"
 gem "select2-rails"
 
 group :staging, :production do
+  gem "factory_girl_rails"
   gem "newrelic_rpm"
   gem "rails_stdout_logging"
 end
@@ -77,7 +78,6 @@ group :development, :test do
   gem "byebug"
   gem "coffeelint"
   gem "dotenv-rails"
-  gem "factory_girl_rails"
   gem "faker"
   gem "fuubar", "~> 2.0.0.rc1"
   gem "jasmine", "> 2.0"
