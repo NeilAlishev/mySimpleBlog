@@ -1,5 +1,8 @@
 # My simple blog
 
+[![Build Status](https://semaphoreci.com/api/v1/neilalishev/mysimpleblog/branches/master/badge.svg)](https://semaphoreci.com/neilalishev/mysimpleblog)
+
+
 ## Project description
 
 This site allows you to write articles, comment them and search for
