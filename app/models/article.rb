@@ -2,7 +2,8 @@ class Article < ActiveRecord::Base
   has_many :comments, dependent: :destroy
   belongs_to :user
 
-  scope :recent, -> (page = 1) { order("created_at desc").page(page).per(5) }
+  scope :recent, -> { order(created_at: :desc) }
+  scope :by_query, -> (query) { ArticleQuery.new.search(query) if query.present? }
 
   validates :title, :content, presence: true
 

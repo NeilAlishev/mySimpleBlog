@@ -1,8 +1,8 @@
 $(".search-form").select2({
   ajax: {
-    url: "/articles",
+    url: "/article_search",
     method: "GET",
-    dataType: 'json',
+    dataType: "json",
     delay: 0,
     data: function (params) {
       return {
@@ -11,7 +11,7 @@ $(".search-form").select2({
     },
     processResults: function (data) {
       return {
-        results: data.articles,
+        results: data,
       };
     },
     cache: true

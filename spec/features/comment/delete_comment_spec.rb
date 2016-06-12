@@ -8,11 +8,12 @@ feature "delete comment", js: true do
     login_as user
     visit article_path(article)
     fill_in "comment-field", with: "Random comment"
-    click_on "Оставить комментарий"
-    click_on "Удалить"
+    click_on "Leave a comment"
   end
 
   scenario "comment gets deleted" do
+    click_on "Delete comment"
+
     expect(page).to have_no_content("Random comment")
   end
 end

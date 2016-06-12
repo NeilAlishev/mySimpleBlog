@@ -1,4 +1,11 @@
-h2 class="search-title" Search posts
-h4 class="search-title"by title
-select class="search-form"
-  option value="3620194" selected="selected"
+.row
+  .columns
+    - unless user_signed_in?
+        h2
+          = link_to "Enter", new_user_session_path
+          |  to create new posts
+    = render "article_search/search_form"
+    h2 ... or explore the recent ones
+    = render articles
+    = paginate articles, total_pages: 3
+
