@@ -1,15 +1,16 @@
 class CommentsController < ApplicationController
   before_action :authenticate_user!
-  before_action :authorize_user!
-  expose(:comment, attributes: :comment_params)
+  before_action :authorize_user!, only: %i(update destroy)
+  expose(:comment, attributes: :comment_attributes)
 
   def create
-    comment.save!
+    comment.user = current_user
+    comment.save
     render comment.decorate
   end
 
   def update
-    comment.save!
+    comment.save
     respond_with comment
   end
 
@@ -20,8 +21,8 @@ class CommentsController < ApplicationController
 
   private
 
-  def comment_params
-    params.require(:comment).permit(:article_id, :content).merge(user_id: current_user.id)
+  def comment_attributes
+    params.require(:comment).permit(:article_id, :content)
   end
 
   def authorize_user!

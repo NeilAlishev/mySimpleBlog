@@ -1,13 +1,12 @@
 Rails.application.routes.draw do
   devise_for :users
 
+  root to: "articles#index"
+
   resources :comments, only: %i(create update destroy)
   resources :articles
-  resources :blogs, only: :index
   resources :feedbacks, only: %i(new create)
 
-  root to: "pages#home"
-
   get "/aboutUs", to: "pages#about_us", as: "about_us"
-  get "/:full_name", to: "blogs#show", as: "blog"
+  get "/blogs/:full_name", to: "blogs#show", as: "blog"
 end

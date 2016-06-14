@@ -31,5 +31,10 @@ module RailsBase
 
     # Set URL options to be able to use url_for helpers
     config.action_mailer.default_url_options = { host: ENV.fetch("HOST") }
+
+    # Add query_objects directory to the load path
+    config.autoload_paths << Rails.root.join("app", "query_objects")
+
+    config.time_zone = "Moscow"
   end
 end

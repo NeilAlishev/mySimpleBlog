@@ -12,6 +12,9 @@
       .form-inputs
         = f.input :full_name, required: true, autofocus: true
         = f.input :email, required: true
+        = f.label "Change your avatar"
+        = f.file_field :avatar, label: "Change your avatar"
+        = f.hidden_field :avatar_cache
         = f.input :password,
             autocomplete: "off",
             required: false

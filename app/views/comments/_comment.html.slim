@@ -2,9 +2,11 @@
   = comment.content
   .author
     | Author:
+    -if comment.user.avatar.present?
+      = image_tag comment.user.avatar.url, class: "avatar"
     = comment.user_full_name
   .published_at
     = comment.published_at
   - if policy(comment).manage?
-    = link_to "Удалить", "", class: "delete-comment-button", data: { confirm: "Вы уверены?" }
+    = link_to "Delete comment", "", class: "delete-comment-button", data: { confirm: "Are you sure?" }
   hr
