@@ -56,11 +56,13 @@ ActiveRecord::Schema.define(version: 20160608112016) do
     t.datetime "updated_at",                                      null: false
     t.string   "full_name",              limit: 255
     t.string   "avatar"
+    t.string   "slug"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["full_name"], name: "index_users_on_full_name", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  add_index "users", ["slug"], name: "index_users_on_slug", using: :btree
 
   add_foreign_key "articles", "users"
   add_foreign_key "comments", "articles"
