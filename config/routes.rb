@@ -8,5 +8,5 @@ Rails.application.routes.draw do
   resources :feedbacks, only: %i(new create)
 
   get "/aboutUs", to: "pages#about_us", as: "about_us"
-  get "/blogs/:full_name", to: "blogs#show", as: "blog"
+  get "/blogs/:slug", to: "blogs#show", as: "blog"
 end
