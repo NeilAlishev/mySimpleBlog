@@ -1,11 +1,6 @@
 .row
   .columns
-    - unless user_signed_in?
-        h2
-          = link_to "Enter", new_user_session_path
-          |  to create new posts
-    = render "article_search/search_form"
-    h2 ... or explore the recent ones
-    = render articles
-    = paginate articles, total_pages: 3
+    h2 Recent posts
+    = render recent_articles, partial: "article"
+    = paginate recent_articles, total_pages: 3
 

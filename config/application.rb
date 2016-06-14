@@ -34,5 +34,7 @@ module RailsBase
 
     # Add query_objects directory to the load path
     config.autoload_paths << Rails.root.join("app", "query_objects")
+
+    config.time_zone = "Moscow"
   end
 end

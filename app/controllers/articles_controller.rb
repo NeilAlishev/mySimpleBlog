@@ -2,7 +2,9 @@ class ArticlesController < ApplicationController
   before_action :authenticate_user!, only: %i(new edit create update destroy)
   before_action :authorize_user!, only: %i(destroy update)
 
-  expose_decorated(:articles) { Article.all.includes(:user).recent.page(params[:page]).per(5) }
+  expose_decorated(:recent_articles, decorator: ArticleDecorator) do
+    Article.recent.includes(:user).page(params[:page]).per(5)
+  end
   expose_decorated(:article, attributes: :article_attributes)
   expose_decorated(:comments) { article.comments.includes(:user) }
 

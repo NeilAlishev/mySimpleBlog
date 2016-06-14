@@ -5,12 +5,12 @@ class CommentsController < ApplicationController
 
   def create
     comment.user = current_user
-    comment.save!
+    comment.save
     render comment.decorate
   end
 
   def update
-    comment.save!
+    comment.save
     respond_with comment
   end
 

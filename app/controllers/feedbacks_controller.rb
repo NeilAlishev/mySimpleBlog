@@ -1,8 +1,5 @@
 class FeedbacksController < ApplicationController
-  expose(:feedback, attributes: :feedback_params)
-
-  def new
-  end
+  expose(:feedback) { Feedback.new(feedback_attributes) }
 
   def create
     FeedbackMailer.feedback_message(feedback).deliver_now! if feedback.valid?
@@ -11,7 +8,18 @@ class FeedbacksController < ApplicationController
 
   private
 
-  def feedback_params
-    params.require(:feedback).permit(:name, :text, :email, :subject)
+  def feedback_attributes
+    params
+      .fetch(:feedback, author_attributes)
+      .permit(:email, :name, :text, :subject)
+  end
+
+  def author_attributes
+    return {} unless current_user
+
+    {
+      email: current_user.email,
+      name: current_user.full_name
+    }
   end
 end

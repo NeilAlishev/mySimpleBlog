@@ -1,6 +1,6 @@
 AddModelVirtualAttributeCheck: { }
 AlwaysAddDbIndexCheck: { }
-CheckSaveReturnValueCheck: { }
+# CheckSaveReturnValueCheck: { }
 DefaultScopeIsEvilCheck: { }
 DryBundlerInCapistranoCheck: { }
 HashSyntaxCheck: { }
@@ -28,8 +28,8 @@ RemoveTrailingWhitespaceCheck: { }
 RemoveUnusedMethodsInControllersCheck:
   except_methods:
   - ApplicationController#devise_parameter_sanitizer
-  - ArticlesController#article_params
-  - CommentsController#comment_params
+  - ArticlesController#article_attributes
+  - CommentsController#comment_attributes
   - FeedbacksController#feedback_params
 RemoveUnusedMethodsInHelpersCheck: { except_methods: [] }
 RemoveUnusedMethodsInModelsCheck: { except_methods: [] }
