@@ -1,4 +1,8 @@
 class User < ActiveRecord::Base
+  extend FriendlyId
+
+  friendly_id :full_name, use: :slugged
+
   has_many :comments, dependent: :destroy
   has_many :articles, dependent: :destroy
 
