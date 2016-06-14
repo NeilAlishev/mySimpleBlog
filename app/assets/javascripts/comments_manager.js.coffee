@@ -25,7 +25,7 @@ class CommentsManager
   _createComment:(e) =>
     e.preventDefault()
     $.ajax
-      url:"/comments"
+      url: "/comments"
       method: "POST"
       data:
         comment:

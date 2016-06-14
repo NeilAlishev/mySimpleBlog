@@ -1,11 +1,12 @@
 .article data-article-id=article.id
   .well.article.form-horizontal
-
     .control-group
       label.control-label
         | Title
       .controls
         .input-xlarge.uneditable-input.string.span7
+          -if article.user_avatar.present?
+            = image_tag article.user_avatar.url, class: "avatar"
           = link_to article.title, article
     .control-group
       label.control-label

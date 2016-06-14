@@ -7,15 +7,16 @@ feature "create comments", js: true do
   background do
     login_as user
     visit article_path(article)
+  end
+
+  scenario "valid comment is created successfully" do
     fill_in "comment-field", with: "Hello there"
-    click_on "Оставить комментарий"
-  end
+    click_on "Leave a comment"
 
-  scenario "comments adds to the page" do
     expect(page).to have_content("Hello there")
-  end
-
-  scenario "comment-field becomes empty" do
     expect(page).to have_field("comment-field", with: "")
+
+    visit article_path(article)
+    expect(page).to have_content("Hello there")
   end
 end

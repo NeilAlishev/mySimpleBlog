@@ -1,4 +1,4 @@
-= form_for :comment, url: comments_path, html: { class: "comment-form" } do |f|
-  = f.label :content, "Текст"
-  = f.text_area :content, id: "comment-field"
-  = f.submit "Оставить комментарий"
+= simple_form_for :comment, html: { class: "comment-form" } do |f|
+  = f.label :content, "Content"
+  = f.input :content, as: :text, input_html: { id: "comment-field" }
+  = f.button :submit, "Leave a comment"

@@ -1,10 +1,5 @@
-class ArticlePolicy
-  def initialize(user, article)
-    @user = user
-    @article = article
-  end
-
+class ArticlePolicy < ApplicationPolicy
   def manage?
-    @article.user_id == @user.id
+    record.user == user
   end
 end

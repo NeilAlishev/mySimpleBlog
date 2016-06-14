@@ -2,19 +2,20 @@ require "rails_helper"
 
 RSpec.describe FeedbackMailer, type: :mailer do
   describe "feedback_message" do
-    let(:feedback) { create(:feedback) }
+    let(:feedback) { build(:feedback) }
+
     let(:mail) { described_class.feedback_message(feedback).deliver_now }
 
     it "renders the subject" do
-      expect(mail.subject).to eq("Feedback")
+      expect(mail.subject).to eq(feedback.subject)
     end
 
     it "renders the receiver email" do
-      expect(mail.to).to eq(["nailalishev@yahoo.com"])
+      expect(mail.to).to eq([ENV["ADMIN_EMAIL"]])
     end
 
     it "renders the sender email" do
-      expect(mail.from).to eq(["blogProject@example.com"])
+      expect(mail.from).to eq([feedback.email])
     end
 
     it "assigns @name" do

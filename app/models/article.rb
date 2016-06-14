@@ -1,9 +1,11 @@
 class Article < ActiveRecord::Base
   has_many :comments, dependent: :destroy
   belongs_to :user
-  default_scope { order(created_at: :desc) }
-  validates :title, presence: true
-  validates :content, presence: true
-  delegate :full_name, to: :user, prefix: :user
-  delegate :id, to: :user, prefix: :user
+
+  scope :recent, -> { order(created_at: :desc) }
+
+  validates :title, :content, presence: true
+
+  delegate :full_name, to: :user, prefix: true
+  delegate :avatar, to: :user, prefix: true
 end
