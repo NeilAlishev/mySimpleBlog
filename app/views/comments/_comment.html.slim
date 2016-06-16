@@ -1,12 +1,14 @@
 .comment data-comment-id=comment.id
-  = comment.content
-  .author
-    | Author:
-    -if comment.user.avatar.present?
-      = image_tag comment.user.avatar.url, class: "avatar"
-    = comment.user_full_name
-  .published_at
+  -if comment.user.avatar.present?
+    = image_tag comment.user.avatar.url, class: "avatar"
+
+  = comment.user_full_name
+
+  .comment-content
+    = comment.content
+
+  .published-at
     = comment.published_at
-  - if policy(comment).manage?
+
+  -if policy(comment).manage?
     = link_to "Delete comment", "", class: "delete-comment-button", data: { confirm: "Are you sure?" }
-  hr

@@ -1,4 +1,8 @@
 $black-color: #000;
+$light-gray-color: #f5f5f5;
+$light-blue-color: #39f;
+$gray-color: #808080;
+$white-color: #fff;
 
 code {
   word-wrap: break-word;
@@ -61,3 +65,50 @@ li {
   color: inherit;
 }
 
+.articles {
+  width: 100%;
+
+  margin-right: auto;
+  margin-left: auto;
+
+  text-align: center;
+}
+
+.article {
+  margin-top: 20pt;
+  margin-bottom: 20pt;
+
+  padding-top: 30px;
+  padding-bottom: 30px;
+
+  border-top: thin solid $light-blue-color;
+  border-bottom: thin solid $light-blue-color;
+
+  background-color: $light-gray-color;
+
+  h2 {
+    color: $light-blue-color;
+  }
+}
+
+.published-at {
+  color: $gray-color;
+}
+
+.comment {
+  width: 50%;
+
+  margin-top: 30px;
+
+  padding: 15px;
+
+  text-align: left;
+
+  border-radius: 25px;
+
+  background-color: $light-blue-color;
+
+  .comment-content {
+    color: $white-color;
+  }
+}

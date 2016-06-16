@@ -1,6 +1,5 @@
-.row
-  .columns
-    h2 Recent posts
-    = render recent_articles, partial: "article"
-    = paginate recent_articles, total_pages: 3
+.articles
+  h2 Recent posts
+  = render recent_articles, partial: "article"
+  = paginate recent_articles, total_pages: 3
 

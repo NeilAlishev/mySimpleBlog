@@ -1,27 +1,15 @@
 .article data-article-id=article.id
-  .well.article.form-horizontal
-    .control-group
-      label.control-label
-        | Title
-      .controls
-        .input-xlarge.uneditable-input.string.span7
-          -if article.user_avatar.present?
-            = image_tag article.user_avatar.url, class: "avatar"
-          = link_to article.title, article
-    .control-group
-      label.control-label
-        | Content
-      .controls
-        .input-xlarge.uneditable-input.text.span7
-          = article.content
-    .control-group
-       label.control-label
-        | Author
-       .controls
-          .input-xlarge.uneditable-input.text.span7
-            = article.user_full_name
-    br
-    .control_group
-      .controls
-        .input-xlarge.uneditable-input.text.span7
-          = article.published_at
+  -if article.user_avatar.present?
+    = image_tag article.user_avatar.url, class: "avatar"
+
+  h2
+    = link_to article.title, article
+
+  p
+    = article.content
+
+  |Author:
+  = article.user_full_name
+
+  .published-at
+    = article.published_at
