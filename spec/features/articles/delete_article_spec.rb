@@ -1,21 +1,21 @@
 require "rails_helper"
 
 feature "Delete article" do
-  let(:user) { create(:user) }
-  let(:article) { create(:article, user: user) }
+  include_context "current user signed in"
+
+  let(:article) { create(:article, user: current_user) }
 
   background do
-    login_as user
     visit article_path(article)
   end
 
   scenario "Article gets deleted" do
-    expect(user.articles.count).to eq(1)
-
     click_on "Delete"
 
     expect(page).to have_content("Article was successfully destroyed.")
 
-    expect(user.articles.count).to eq(0)
+    visit root_path
+
+    expect(page).not_to have_content(article.title)
   end
 end

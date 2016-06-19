@@ -1,11 +1,11 @@
 require "rails_helper"
 
 feature "create comments", js: true do
-  let(:user) { create :user }
-  let(:article) { create :article, user: user }
+  include_context "current user signed in"
+
+  let(:article) { create :article, user: current_user }
 
   background do
-    login_as user
     visit article_path(article)
   end
 

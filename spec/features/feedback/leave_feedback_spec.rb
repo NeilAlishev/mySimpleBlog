@@ -2,8 +2,7 @@ require "rails_helper"
 
 feature "Leave a feedback" do
   background do
-    visit root_path
-    click_on "Contact us"
+    visit new_feedback_path
   end
 
   scenario "Feedback gets successfully submitted" do

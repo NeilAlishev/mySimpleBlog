@@ -1,32 +1,13 @@
 require "rails_helper"
 
 feature "Articles are sorted by recent on the home page" do
-  let(:user) { create(:user) }
+  include_context "current user signed in"
 
-  background do
-    login_as user
-  end
+  let!(:article) { create :article, user: current_user }
 
-  scenario "Created article shows up" do
-    visit root_path
-
-    expect(page.all("[data-article-id]").count).to eq(0)
-
-    create_article
-
+  scenario "User sees article on the home page" do
     visit root_path
 
     expect(page.all("[data-article-id]").count).to eq(1)
-  end
-
-  private
-
-  def create_article
-    visit new_article_path
-
-    fill_in "Title", with: "My post"
-    fill_in "Content", with: "Hey there!"
-
-    click_on "Create Article"
   end
 end

@@ -1,17 +1,15 @@
 require "rails_helper"
 
 feature "Edit article" do
-  let(:user) { create(:user) }
-  let(:article) { create(:article, user: user) }
+  include_context "current user signed in"
+
+  let(:article) { create(:article, user: current_user) }
 
   background do
-    login_as user
-    visit article_path(article)
+    visit edit_article_path(article)
   end
 
-  scenario "Article gets edited" do
-    click_on "Edit"
-
+  scenario "User edits the article" do
     fill_in("Title", with: "new title")
     fill_in("Content", with: "new content")
 
@@ -19,7 +17,7 @@ feature "Edit article" do
 
     expect(page).to have_content("Article was successfully updated.")
 
-    expect(user.articles.last.title).to eq "new title"
-    expect(user.articles.last.content).to eq "new content"
+    expect(current_user.articles.last.title).to eq "new title"
+    expect(current_user.articles.last.content).to eq "new content"
   end
 end

@@ -1,14 +1,20 @@
 require "rails_helper"
 
 feature "delete comment", js: true do
-  let(:user) { create(:user) }
-  let(:article) { create :article, user: user }
+  include_context "current user signed in"
+
+  let(:article) { create :article, user: current_user }
+  let!(:comment) do
+    create(
+      :comment,
+      content: "Random comment",
+      user: current_user,
+      article: article
+    )
+  end
 
   background do
-    login_as user
     visit article_path(article)
-    fill_in "comment-field", with: "Random comment"
-    click_on "Leave a comment"
   end
 
   scenario "comment gets deleted" do
