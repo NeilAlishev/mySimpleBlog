@@ -1,0 +1,4 @@
+.article-filter-form
+  = simple_form_for :author, url: articles_path, method: :get do |f|
+    = f.input :full_name, as: :string
+    = f.button :submit, "Find by author's name"

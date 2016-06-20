@@ -161,3 +161,13 @@ li {
 
   border: thin $red-color solid;
 }
+
+.article-filter-form {
+  width: 20%;
+  margin-right: auto;
+  margin-left: auto;
+
+  .button {
+    width: 100%;
+  }
+}

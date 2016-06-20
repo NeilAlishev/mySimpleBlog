@@ -2,10 +2,9 @@ class ArticlesController < ApplicationController
   before_action :authenticate_user!, only: %i(new edit create update destroy)
   before_action :authorize_user!, only: %i(destroy update)
 
-  expose_decorated(:recent_articles, decorator: ArticleDecorator) do
-    Article.recent.includes(:user).page(params[:page]).per(5)
-  end
+  expose_decorated(:articles) { scoped_articles }
   expose_decorated(:article, attributes: :article_attributes)
+
   expose_decorated(:comments) { article.comments.includes(:user) }
 
   def create
@@ -33,5 +32,18 @@ class ArticlesController < ApplicationController
 
   def authorize_user!
     authorize(article, :manage?)
+  end
+
+  def scoped_articles
+    Article
+      .filter_by_author(filtering_params)
+      .recent
+      .includes(:user)
+      .page(params[:page])
+      .per(5)
+  end
+
+  def filtering_params
+    params.fetch(:author, {}).permit(:full_name)
   end
 end
