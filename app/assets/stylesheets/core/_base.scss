@@ -32,14 +32,11 @@ li {
   font-size: .85rem;
 }
 
-.search-title {
-  display: inline;
+.centered {
+  width: 50%;
 
-  margin-left: 15px;
-}
-
-.select2-result-link {
-  color: $black-color;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 .avatar {
@@ -64,9 +61,6 @@ li {
 
 .articles {
   width: 100%;
-
-  margin-right: auto;
-  margin-left: auto;
 
   text-align: center;
 }
@@ -150,22 +144,15 @@ li {
 }
 
 .about-us-content {
-  width: 50%;
-
   margin-top: 50pt;
-  margin-right: auto;
-  margin-left: auto;
 
   text-align: center;
-
 
   border: thin $red-color solid;
 }
 
 .article-filter-form {
   width: 20%;
-  margin-right: auto;
-  margin-left: auto;
 
   .button {
     width: 100%;

@@ -1,4 +1,6 @@
 class ArticlesController < ApplicationController
+  respond_to :js, only: :index
+
   before_action :authenticate_user!, only: %i(new edit create update destroy)
   before_action :authorize_user!, only: %i(destroy update)
 
@@ -6,6 +8,10 @@ class ArticlesController < ApplicationController
   expose_decorated(:article, attributes: :article_attributes)
 
   expose_decorated(:comments) { article.comments.includes(:user) }
+
+  def index
+    respond_with articles
+  end
 
   def create
     article.user = current_user

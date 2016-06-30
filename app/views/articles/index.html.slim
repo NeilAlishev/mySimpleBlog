@@ -1,12 +1,8 @@
-.articles
-  h2 Recent posts
+= render "filter_form"
 
-  = render "filter_form"
+.articles.centered
+  = render articles
 
-  - if !articles.empty?
-    = render articles
-  - else
-    = "No articles were found"
-
-  = paginate articles
+.paginator
+  = paginate articles, remote: true
 
