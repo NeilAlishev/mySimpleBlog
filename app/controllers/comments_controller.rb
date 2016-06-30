@@ -9,11 +9,6 @@ class CommentsController < ApplicationController
     render comment.decorate
   end
 
-  def update
-    comment.save
-    respond_with comment
-  end
-
   def destroy
     comment.destroy
     render nothing: true, status: :ok
