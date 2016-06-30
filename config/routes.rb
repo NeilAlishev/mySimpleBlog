@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   root to: "articles#index"
 
-  resources :comments, only: %i(create update destroy)
+  resources :comments, only: %i(create destroy)
   resources :articles
   resources :feedbacks, only: %i(new create)
 
