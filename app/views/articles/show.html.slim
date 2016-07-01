@@ -1,12 +1,11 @@
-= render "articles/article_actions"
 = render article
 
 b
-  span id='comment-counter'
+  span#comment-counter.left-pane
     = comments.count
   |  Comments
 
-.comments
+.comments.left-pane
   = render comments
 
 - if user_signed_in?
@@ -14,5 +13,5 @@ b
     = render "comments/form"
 - else
   h4
-    = link_to "Enter", new_user_session_path
+    = link_to "Enter", new_user_session_path, class: "left-pane"
     |  to leave a comment

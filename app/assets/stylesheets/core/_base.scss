@@ -72,6 +72,8 @@ li {
   padding-top: 30px;
   padding-bottom: 30px;
 
+  text-align: center;
+
   border-top: thin solid $light-blue-color;
   border-bottom: thin solid $light-blue-color;
 
@@ -157,4 +159,8 @@ li {
   .button {
     width: 100%;
   }
+}
+
+.left-pane {
+  margin-left: 5px;
 }
