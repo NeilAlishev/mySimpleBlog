@@ -1,0 +1,8 @@
+.articles.centered
+  - if articles.any?
+    = render articles
+
+    .paginator
+      = paginate articles, remote: true
+  - else
+    | No articles were found
