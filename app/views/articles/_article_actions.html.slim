@@ -1,9 +1,9 @@
-.form-actions.article-actions
-    - if policy(article).manage?
-      = link_to(edit_article_path(article), class: "btn btn-primary") do
-        i.fi-pencil
-        | Edit
-        br
-      = link_to(article, method: :delete, class: "btn btn-danger", data: { confirm: "Are you sure?" }) do
-        i.fi-trash
-        | Delete
+.article-actions
+  - if policy(article).manage?
+    = link_to(edit_article_path(article), class: "btn btn-primary") do
+      i.fi-pencil
+      | Edit
+      br
+    = link_to(article, method: :delete, class: "btn btn-danger", data: { confirm: "Are you sure?" }) do
+      i.fi-trash
+      | Delete
