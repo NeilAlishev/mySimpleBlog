@@ -41,12 +41,7 @@ class ArticlesController < ApplicationController
   end
 
   def scoped_articles
-    Article
-      .filter_by_author(filtering_params)
-      .recent
-      .includes(:user)
-      .page(params[:page])
-      .per(5)
+    FilteredArticlesQuery.new(filtering_params).all.page(params[:page]).per(5)
   end
 
   def filtering_params
