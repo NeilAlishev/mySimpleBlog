@@ -1,4 +1,6 @@
-.article-filter-form
-  = simple_form_for :author, url: articles_path, method: :get do |f|
+.article-filter-form.centered
+  h2 Recent posts
+
+  = simple_form_for :author, url: articles_path, method: :get, remote: true do |f|
     = f.input :full_name, as: :string
     = f.button :submit, "Find by author's name"

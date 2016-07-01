@@ -1,12 +1,3 @@
-.articles
-  h2 Recent posts
-
-  = render "filter_form"
-
-  - if !articles.empty?
-    = render articles
-  - else
-    = "No articles were found"
-
-  = paginate articles
+= render "filter_form"
+= render "articles"
 
